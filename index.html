@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Mapping</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/templatemo-tiya-golf-club.css" rel="stylesheet">
+  <style>
+  body {
+    background-color: var(--white-color);
+    font-family: var(--body-font-family); 
+    position: relative;
+    height: 100vh;
+    min-height: 670px;
+    background-image: url('back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .introduction {
+    background-image: url('back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+  }
+
+    #map {
+      border-radius: 50px;
+      width: 80%;
+      height: 600px;
+      margin: 0 auto;
+    }
+
+    .map-container {
+      flex: 1;
+    }
+
+    .introduction {
+      max-width: 100%;
+      margin: 0;
+    }
+
+    .title {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+<div style="position: absolute; right: 1; left: 2; margin-top: 1%;" class="d-none d-lg-block ms-lg-3">
+                            <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="../activities/index.html" role="button" aria-controls="offcanvasExample">Home</a>
+                        </div>
+                        <br>
+<div>
+  <center><h1 class="title" style="font-family: Tahoma; font-size: 35px; color: whitesmoke; 2px 2px 4px #000000;">The Philippines</h1></center>
+  <br>
+  <div class="map-container">
+    <div id="map"></div>
+  </div>
+<br>
+  <div class="introduction">
+    <h1 class="title" style="margin-left: 2%; font-family: Tahoma; font-size: 25px; color: darkkhaki; 2px 2px 4px #000000;">Introduction</h1>
+    <p style="text-align: justify; margin-left: 3%; margin-right: 3%; font-family: garamond; font-size: 18px; color: white; text-align: justify; 2px 2px 4px #000000;">The Philippines is a Southeast Asian country composed of over 7,000 islands, known for its rich history and cultural diversity. With stunning natural landscapes and a vibrant biodiversity, it attracts tourists from around the world. Filipino culture is a blend of indigenous traditions and influences from its colonial past, characterized by warmth, hospitality, and strong family ties. The country's economy is diverse, with agriculture, manufacturing, services, and tourism contributing to its growth. Despite facing challenges such as poverty and natural disasters, the Filipino people exhibit resilience and a strong spirit of progress. Overall, the Philippines offers a unique blend of natural beauty, cultural heritage, and friendly atmosphere, making it an enticing destination for travelers.</p>
+
+    <h1 class="title" style="margin-left: 2%; font-family: Tahoma; font-size: 25px; color: darkkhaki; 2px 2px 4px #000000;">Top Tourist Spots to Visit</h1>
+    <div class="spots">
+      <div style="display: inline-block; width: 40%; margin-left: 5%;">
+        <img src="https://amoureux-du-monde.com/wp-content/uploads/2019/05/Siargao-Philippines-scaled.jpg" alt="Siargao Island" style="width: 100%; height: 90%;">
+        <p style="margin-left: 40%; text-align: justify; font-family: Tahoma; font-size: 18px; color: white; text-align: justify; 2px 2px 4px #000000;">Siargao Island</p>
+      </div>
+
+      <div style="display: inline-block; width: 40%; height: 40%; margin-left: 7%;">
+        <img src="https://img.theculturetrip.com/wp-content/uploads/2018/04/shutterstock_425002612.jpg" alt="Chocolate Hills" style="width: 100%; height: 200%;">
+        <p style="margin-left: 40%; text-align: justify; font-family: Tahoma; font-size: 18px; color: white; text-align: justify; 2px 2px 4px #000000;">Chocolate Hills</p>
+      </div>
+
+      <div style="display: inline-block; width: 40%; margin-left: 5%;">
+        <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/ef/38/25.jpg" alt="Fort Santiago" style="width: 100%;">
+        <p style="margin-left: 40%; text-align: justify; font-family: Tahoma; font-size: 18px; color: white; text-align: justify; 2px 2px 4px #000000;">Fort Santiago</p>
+      </div>
+
+      <div style="display: inline-block; width: 40%; height: 40%; margin-left: 7%;">
+        <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/df/02/75.jpg" alt="Rizal Park" style="width: 100%; height: 200%;">
+        <p style="margin-left: 40%; text-align: justify; font-family: Tahoma; font-size: 18px; color: white; text-align: justify; 2px 2px 4px #000000;">Rizal Park</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var map = L.map('map').setView([20, 120], 4);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      var philippinesCoordinates = [13, 122];
+      var philippinesDescription = "The Philippines is known for its beautiful beaches and tropical landscapes.";
+
+      L.marker(philippinesCoordinates).addTo(map).on('click', function () {
+        map.flyTo(philippinesCoordinates, 7);
+        alert(philippinesDescription);
+      });
+    });
+  </script>
+</body>
+</html>
